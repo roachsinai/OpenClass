@@ -1,3 +1,9 @@
+# folder
+ufldl/data/*
+
 # C & C++
 *.exe
 *.out
+
+# python
+*.pyc
