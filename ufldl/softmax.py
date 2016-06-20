@@ -36,7 +36,7 @@ def softmax_cost(theta, n_classes, input_size, lambda_, data, labels):
 	cost = -1.0/m * np.sum(indicator * np.log(proba)) + 0.5*lambda_*np.sum(theta*theta)
 
 	# Gradient matrix with shape (k, n)
-	grad = -1.0/m * (indicator - praba).dot(data.T) + lambda_*theta
+	grad = -1.0/m * (indicator - proba).dot(data.T) + lambda_*theta
 	
 	# Unroll the gradinet matrix into a vector
 	grad = grad.ravel()
@@ -63,10 +63,10 @@ def softmax_train(input_size, n_classes, lambda_, input_data, labels, options={'
 	# initialize parameters
 	theta = 0.005 * np.random.randn(n_classes * input_size)
 	
-	J = lambda theta : softmax_cost(theta, n_classes=, input_size, lambda_, input_data, labels)
+	J = lambda theta : softmax_cost(theta, n_classes, input_size, lambda_, input_data, labels)
 	
 	# Find out the optimal theta
-	results = scipy.optimize.minimize(J, theta, method='L-BFGS-B', jav=True, options=options)
+	results = scipy.optimize.minimize(J, theta, method='L-BFGS-B', jac=True, options=options)
 	opt_theta = results['x']
 	
 	model = {'opt_theta': opt_theta, 'n_classes': n_classes, 'input_size': input_size}

@@ -7,3 +7,4 @@ ufldl/data/*
 
 # python
 *.pyc
+*/__pycache__/
