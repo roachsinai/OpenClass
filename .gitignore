@@ -8,3 +8,4 @@ ufldl/data/*
 # python
 *.pyc
 */__pycache__/
+*/.ipynb_checkpoints
